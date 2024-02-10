@@ -39,24 +39,23 @@ jobs:
         key:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
 
-    - name: setup conda
-      uses: conda-incubator/setup-miniconda@11b562958363ec5770fef326fe8ef0366f8cbf8a
+    - uses: conda-incubator/setup-miniconda@v3
       with:
-        auto-update-conda: true
-        python-version: "3.10"
-        channels: conda-forge,bioconda
-        miniforge-variant: Mambaforge
         miniforge-version: latest
-        use-mamba: true
-        mamba-version: "*"
-        activate-environment: sourmash_dev
+        python-version: "3.10"
+        auto-update-conda: false
         auto-activate-base: false
-        use-only-tar-bz2: true
+        activate-environment: true
 
     - name: install dependencies
       shell: bash -l {0}
-      run: mamba install 'tox>=3.27,<4' tox-conda rust git compilers pandoc libstdcxx-ng
+      run: |
+        conda install conda-lock
+        conda-lock --lockfile pixi.lock render -p linux-64
+        conda create -n sourmash_dev --file conda-linux-64.lock
 
     - name: run tests for 3.10
       shell: bash -l {0}
-      run: tox -e py310
+      run: |
+        conda activate sourmash_dev
+        tox -e py310
