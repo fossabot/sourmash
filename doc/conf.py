@@ -41,6 +41,7 @@ extensions = [
     "nbsphinx",
     "IPython.sphinxext.ipython_console_highlighting",
     "myst_parser",
+    "sphinx_design",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -314,4 +315,7 @@ texinfo_documents = [
 
 autodoc_mock_imports = ["sourmash.minhash"]
 myst_heading_anchors = 3
-myst_enable_extensions = ["colon_fence"]
+myst_enable_extensions = [
+  "html_admonition",
+  "colon_fence",
+]

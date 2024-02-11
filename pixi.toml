@@ -1,43 +1,5 @@
 [project]
 name = "sourmash"
-version = "4.8.3-dev"
-description = "tools for comparing biological sequences with k-mer sketches"
-authors = [
-    "Luiz Irber",
-    "Mohamed Abuelanin",
-    "Harriet Alexander",
-    "Abhishek Anant",
-    "Keya Barve",
-    "Colton Baumler",
-    "Olga Botvinnik",
-    "Phillip Brooks",
-    "Peter Cock",
-    "Daniel Dsouza",
-    "Laurent Gautier",
-    "Tim Head",
-    "Mahmudur Rahman Hera",
-    "Hannah Eve Houts",
-    "Lisa K. Johnson",
-    "Fabian Klötzl",
-    "David Koslicki",
-    "Katrin Leinweber",
-    "Marisa Lim",
-    "Ricky Lim",
-    "Ivan Ogasawara",
-    "N. Tessa Pierce",
-    "Taylor Reiter",
-    "Camille Scott",
-    "Andreas Sjödin",
-    "Connor T. Skennerton",
-    "Jason Stajich",
-    "Daniel Standage",
-    "S. Joshua Swamidass",
-    "Connor Tiffany",
-    "Pranathi Vemuri",
-    "Erik Young",
-    "Nick H",
-    "C. Titus Brown",
-]
 channels = ["conda-forge"]
 platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
 
