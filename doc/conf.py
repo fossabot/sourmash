@@ -316,6 +316,6 @@ texinfo_documents = [
 autodoc_mock_imports = ["sourmash.minhash"]
 myst_heading_anchors = 3
 myst_enable_extensions = [
-  "html_admonition",
-  "colon_fence",
+    "html_admonition",
+    "colon_fence",
 ]
