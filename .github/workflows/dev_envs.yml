@@ -45,3 +45,34 @@ jobs:
     - name: run tests for 3.10
       shell: pixi run bash {0}
       run: tox -e py310
+
+  mamba:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: cache conda
+      uses: actions/cache@v4
+      env:
+        CACHE_NUMBER: 0
+        path: ~/conda_pkgs_dir
+        key:
+          ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
+
+    - name: setup conda
+      uses: conda-incubator/setup-miniconda@11b562958363ec5770fef326fe8ef0366f8cbf8a
+      with:
+        python-version: "3.10"
+        miniforge-version: latest
+        environment-file: dev.yml
+        activate-environment: sourmash_dev
+        auto-activate-base: false
+
+    - name: run tests for 3.10
+      shell: bash -l {0}
+      run: tox -e py310

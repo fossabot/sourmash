@@ -12,11 +12,35 @@ git clone https://github.com/sourmash-bio/sourmash.git
 ```
 sourmash runs under Python 3.10 and later.
 
-We recommend using `pixi` or `Nix` for setting up an environment for developing
+We recommend using `conda` for setting up an environment for developing
 new features, running tests and code quality checks.
-Here are some suggestions on how to set them up (note: you only need one =])
+Here are some suggestions on how to set them up
+
+:::{note}
+You only need one of these, no need to install them all!
+:::
 
 ::::{tab-set}
+
+:::{tab-item} conda
+
+Follow the [installation instructions](https://github.com/conda-forge/miniforge#install) for
+installing `Miniforge3` (a conda distribution that uses
+the [`conda-forge`](https://conda-forge.org/) channel by default).
+
+Once `conda` is installed, run
+```
+conda create -n sourmash_dev -f dev.yml
+```
+to create an environment called `sourmash_dev` containing the programs needed
+for development.
+
+Once the environment is created, you can activate it for development with
+```
+conda activate sourmash_dev
+```
+
+:::
 
 :::{tab-item} pixi
 
