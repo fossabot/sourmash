@@ -30,7 +30,7 @@ the [`conda-forge`](https://conda-forge.org/) channel by default).
 
 Once `conda` is installed, run
 ```
-conda create -n sourmash_dev -f dev.yml
+conda env create -n sourmash_dev --file dev.yml
 ```
 to create an environment called `sourmash_dev` containing the programs needed
 for development.
